@@ -136,33 +136,29 @@ public class CourseViewer extends JFrame implements ActionListener,	ChangeListen
 		}
 	}
 
-//	public void paint(Graphics g) {
-//		super.paint(g);
-//		LayoutConstants.paintBarChartOutline(g, sliders.size());
-//		for (int i = 0; i < sliders.size(); i++) {
-//			JSlider record = sliders.elementAt(i);
-//			g.setColor(LayoutConstants.courseColours[i]);
-//			int x = LayoutConstants.xOffset + (i + 1)
-//					* LayoutConstants.barSpacing + i
-//					* LayoutConstants.barWidth;
-//
-//			g.fillRect(
-//					x, LayoutConstants.yOffset
-//							+ LayoutConstants.graphHeight
-//							- LayoutConstants.barHeight + 2
-//							* (LayoutConstants.maxValue - record.getValue()),
-//					LayoutConstants.barWidth, 2 * record.getValue());
-//			g.setColor(Color.red);
-//			g.drawString(record.getName(),
-//					x, LayoutConstants.yOffset
-//							+ LayoutConstants.graphHeight + 20);
-//		}
-//
-//	}
-
-	// PIE CHART 
 	public void paint(Graphics g) {
+
 		super.paint(g);
+		LayoutConstants.paintBarChartOutline(g, sliders.size());
+		for (int i = 0; i < sliders.size(); i++) {
+			JSlider record = sliders.elementAt(i);
+			g.setColor(LayoutConstants.courseColours[i]);
+			int x = LayoutConstants.xOffset + (i + 1)
+					* LayoutConstants.barSpacing + i
+					* LayoutConstants.barWidth;
+
+			g.fillRect(
+					x, LayoutConstants.yOffset
+							+ LayoutConstants.graphHeight
+							- LayoutConstants.barHeight + 2
+							* (LayoutConstants.maxValue - record.getValue()),
+					LayoutConstants.barWidth, 2 * record.getValue());
+			g.setColor(Color.red);
+			g.drawString(record.getName(),
+					x, LayoutConstants.yOffset
+							+ LayoutConstants.graphHeight + 20);
+		}
+		// PIE CHART
 		int radius = 100;
 
 		//first compute the total number of students
@@ -181,8 +177,8 @@ public class CourseViewer extends JFrame implements ActionListener,	ChangeListen
 				startAngle += ratio;
 			}
 		}
-	}
 
+	}
 
 
 	/**
